@@ -140,3 +140,24 @@
 
 })(jQuery);
 
+const toggleButton = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Load saved theme from localStorage
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  body.classList.add(savedTheme);
+  toggleButton.textContent = savedTheme === "dark-mode" ? "☀️" : "🌙";
+}
+
+// Toggle function
+toggleButton.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  const isDark = body.classList.contains("dark-mode");
+
+  // Change button icon
+  toggleButton.textContent = isDark ? "☀️" : "🌙";
+
+  // Save preference
+  localStorage.setItem("theme", isDark ? "dark-mode" : "light-mode");
+});

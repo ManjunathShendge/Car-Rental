@@ -500,7 +500,9 @@
 .categories .categories-item-inner .categories-img {
     background: var(--bs-light);
 }
-
+.categories-img img {
+    height: 230px;
+}
 .categories .categories-item-inner .categories-content {
     border-top: 4px solid var(--bs-white);
     text-align: center;
@@ -953,4 +955,28 @@
 }
 /*** copyright end ***/
 
+/* Default Light Theme */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --primary-color: #6200ee;
+}
+
+/* Dark Theme */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --primary-color: #bb86fc;
+}
+
+/* Apply variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--primary-color);
+}
 
