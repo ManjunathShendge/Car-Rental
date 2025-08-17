@@ -8,25 +8,25 @@
 
     <!-- 🔑 Keywords -->
     <meta name="keywords"
-        content="available cars Goa, rent a car Goa, car hire fleet Goa, self drive cars Goa, SUVs for rent Goa, hatchback rental Goa, luxury car rental Goa, sedan car rental Goa, Cental car rental cars">
+        content="available cars Goa, rent a car Goa, car hire fleet Goa, self drive cars Goa, SUVs for rent Goa, hatchback rental Goa, luxury car rental Goa, sedan car rental Goa, Express Cars car rental cars">
 
     <!-- 📄 Description -->
     <meta name="description"
-        content="Browse the fleet of cars available at Cental Car Rentals in Goa 🚗. Choose from hatchbacks, sedans, SUVs, and luxury cars for self-drive or chauffeur-driven rides. Affordable rates, easy booking, 24/7 support.">
+        content="Browse the fleet of cars available at Express Cars-Car Rentals in Goa 🚗. Choose from hatchbacks, sedans, SUVs, and luxury cars for self-drive or chauffeur-driven rides. Affordable rates, easy booking, 24/7 support.">
 
     <!-- ✅ Open Graph / Facebook -->
-    <meta property="og:title" content="Available Cars | Cental Car Rentals in Goa">
+    <meta property="og:title" content="Available Cars | Express Cars-Car Rentals in Goa">
     <meta property="og:description"
-        content="Explore our wide range of available cars in Goa – hatchbacks, sedans, SUVs & luxury cars. Book your car rental with Cental today.">
+        content="Explore our wide range of available cars in Goa – hatchbacks, sedans, SUVs & luxury cars. Book your car rental with Express Cars today.">
     <meta property="og:image" content="https://expresscars.netlify.app/img/logo.png">
     <meta property="og:url" content="https://expresscars.netlify.app/cars">
     <meta property="og:type" content="website">
 
     <!-- 🐦 Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Available Cars | Cental Car Rentals in Goa">
+    <meta name="twitter:title" content="Available Cars | Express Cars-Car Rentals in Goa">
     <meta name="twitter:description"
-        content="Find the perfect car to rent in Goa. Cental offers hatchbacks, sedans, SUVs & luxury cars for self-drive or chauffeur service.">
+        content="Find the perfect car to rent in Goa. Express Cars-offers hatchbacks, sedans, SUVs & luxury cars for self-drive or chauffeur service.">
     <meta name="twitter:image" content="https://expresscars.netlify.app/img/logo.png">
 
 
@@ -52,6 +52,15 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+<style>
+    #logo-icon {
+        width: 150px !important;
+        height: 400px !important;
+        object-fit: cover;
+        object-fit: cover;
+
+    }
+</style>
 
 <body>
 
@@ -101,8 +110,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i></i>Cental</h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                    <img src="img/logo.png" id="logo-icon" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -112,7 +120,6 @@
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="blog.html" class="nav-item nav-link">Blog</a>
                         <a href="cars.html" class="nav-item nav-link">Our Cars</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
@@ -135,237 +142,667 @@
         </div>
     </div>
     <!-- Header End -->
+     <div id="rentalModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">Book Your Car in Goa</div>
+
+            <form id="rentalForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required
+                            pattern="[A-Za-z\s]{3,50}" title="Only letters and spaces, 3-50 characters">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number" required pattern="[0-9]{10}"
+                            title="Enter a valid 10-digit phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="car">Select Car *</label>
+                        <select id="car" required>
+                            <option value="" disabled selected>Select Car</option>
+                            <option value="maruti">Ertiga</option>
+                            <option value="honda">Hycros</option>
+                            <option value="toyota">Kia</option>
+                            <option value="toyota">Kia-Seltos</option>
+                            <option value="toyota">Hyundai Creta</option>
+                            <option value="toyota">Mahindra-XUV</option>
+                            <option value="toyota">Thar</option>
+                            <option value="toyota">Baleno</option>
+                            <option value="toyota">Land Cruiser</option>
+                            <option value="toyota">winger</option>
+                            <option value="toyota">Maruti Suzuki Swift </option>
+                            <option value="toyota">Hyundai i20 </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pickup">Pick Up Location *</label>
+                        <select id="pickup" required>
+                            <option value="" disabled selected>Pick Up Location</option>
+                            <option value="goa-airport">Goa Airport</option>
+                            <option value="panjim">Panjim</option>
+                            <option value="madgaon">Madgaon</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dropoff">Drop Off Location *</label>
+                        <select id="dropoff" required>
+                            <option value="" disabled selected>Drop Off Location</option>
+                            <option value="goa-airport">Goa Airport</option>
+                            <option value="panjim">Panjim</option>
+                            <option value="madgaon">Madgaon</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pickupDate">Pick Up Date *</label>
+                        <input type="date" id="pickupDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pickupTime">Pick Up Time *</label>
+                        <input type="time" id="pickupTime" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dropoffDate">Drop Off Date *</label>
+                        <input type="date" id="dropoffDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dropoffTime">Drop Off Time *</label>
+                        <input type="time" id="dropoffTime" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="note">Additional Note</label>
+                    <textarea id="note" rows="3" placeholder="Any special requests or notes"></textarea>
+                </div>
+
+                <button type="submit" class="rent-btn">Rent Now</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Car categories Start -->
     <div class="container-fluid categories py-5">
         <div class="container py-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                <h1 class="display-5 text-capitalize mb-3">Vehicle <span class="text-primary">Categories</span></h1>
-                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita
-                    asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis
-                    modi quisquam quia distinctio,
+                <h1 class="display-5 text-capitalize mb-3">Our Vehicle <span class="text-primary">Categories</span></h1>
+                <p class="mb-0">
+                    At <strong> Express Cars</strong>, we offer a wide range of vehicles to suit your travel needs
+                    in Goa.
+                    From compact hatchbacks for city rides, stylish sedans for comfort, rugged SUVs for adventure, to
+                    premium
+                    luxury cars for special occasions — we’ve got the perfect ride for every journey. Whether it’s a
+                    short trip,
+                    long vacation, or business travel, choose the vehicle that matches your style and budget.
                 </p>
             </div>
-            <div class="categories-carousel owl-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="categories-item p-4">
-                    <div class="categories-item-inner">
-                        <div class="categories-img rounded-top">
-                            <img src="img/car-1.png" class="img-fluid w-100 rounded-top" alt="">
+
+            <div id="car-categories" class="container-fluid categories pb-5">
+                <div class="container pb-5">
+                    
+                    <div class="categories-carousel owl-carousel wow fadeInUp" data-wow-delay="0.1s">
+
+                        <!-- Car 1 -->
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/swift.jpeg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Maruti Suzuki Swift </h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.5 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star text-body"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">AT/MT</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-gas-pump text-dark"></i> <span
+                                                class="text-body ms-1">Petrol</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="categories-content rounded-bottom p-4">
-                            <h4>Mercedes Benz R3</h4>
-                            <div class="categories-review mb-4">
-                                <div class="me-3">4.5 Review</div>
-                                <div class="d-flex justify-content-center text-secondary">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star text-body"></i>
+
+                        <!-- Car 2 -->
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/i20.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Hyundai i20 </h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.0 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star text-body"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">5
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-gas-pump text-dark"></i> <span
+                                                class="text-body ms-1">Petrol</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
                                 </div>
                             </div>
-                            <div class="mb-4">
-                                <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">$99:00/Day</h4>
-                            </div>
-                            <div class="row gy-2 gx-0 text-center mb-4">
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4 Seat</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">AT/MT</span>
-                                </div>
-                                <div class="col-4">
-                                    <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">Petrol</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">2015</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">AUTO</span>
-                                </div>
-                                <div class="col-4">
-                                    <i class="fa fa-road text-dark"></i> <span class="text-body ms-1">27K</span>
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
-                                Now</a>
                         </div>
-                    </div>
-                </div>
-                <div class="categories-item p-4">
-                    <div class="categories-item-inner">
-                        <div class="categories-img rounded-top">
-                            <img src="img/car-2.png" class="img-fluid w-100 rounded-top" alt="">
+
+                        <!-- Car 3 -->
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/ertiga.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Ertiga</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.2 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star text-body"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="categories-content rounded-bottom p-4">
-                            <h4>Toyota Corolla Cross</h4>
-                            <div class="categories-review mb-4">
-                                <div class="me-3">3.5 Review</div>
-                                <div class="d-flex justify-content-center text-secondary">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star text-body"></i>
+
+                        <!-- Car 4 -->
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/hycros.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Hycros</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.8 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
                                 </div>
                             </div>
-                            <div class="mb-4">
-                                <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">$128:00/Day</h4>
-                            </div>
-                            <div class="row gy-2 gx-0 text-center mb-4">
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4 Seat</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">AT/MT</span>
-                                </div>
-                                <div class="col-4">
-                                    <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">Petrol</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">2015</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">AUTO</span>
-                                </div>
-                                <div class="col-4">
-                                    <i class="fa fa-road text-dark"></i> <span class="text-body ms-1">27K</span>
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
-                                Now</a>
                         </div>
-                    </div>
-                </div>
-                <div class="categories-item p-4">
-                    <div class="categories-item-inner">
-                        <div class="categories-img rounded-top">
-                            <img src="img/car-3.png" class="img-fluid w-100 rounded-top" alt="">
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/kia.png" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Kia</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.8 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="categories-content rounded-bottom p-4">
-                            <h4>Tesla Model S Plaid</h4>
-                            <div class="categories-review mb-4">
-                                <div class="me-3">3.8 Review</div>
-                                <div class="d-flex justify-content-center text-secondary">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star text-body"></i>
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/Kia-Seltos.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Kia Seltos</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.8 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
                                 </div>
                             </div>
-                            <div class="mb-4">
-                                <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">$170:00/Day</h4>
-                            </div>
-                            <div class="row gy-2 gx-0 text-center mb-4">
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4 Seat</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">AT/MT</span>
-                                </div>
-                                <div class="col-4">
-                                    <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">Petrol</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">2015</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">AUTO</span>
-                                </div>
-                                <div class="col-4">
-                                    <i class="fa fa-road text-dark"></i> <span class="text-body ms-1">27K</span>
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
-                                Now</a>
                         </div>
-                    </div>
-                </div>
-                <div class="categories-item p-4">
-                    <div class="categories-item-inner">
-                        <div class="categories-img rounded-top">
-                            <img src="img/car-4.png" class="img-fluid w-100 rounded-top" alt="">
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/Hyundai-Creta.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Hyundai Creta</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.8 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="categories-content rounded-bottom p-4">
-                            <h4>Hyundai Kona Electric</h4>
-                            <div class="categories-review mb-4">
-                                <div class="me-3">4.8 Review</div>
-                                <div class="d-flex justify-content-center text-secondary">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/toyota-fortuner.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Fortuner</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.8 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
                                 </div>
                             </div>
-                            <div class="mb-4">
-                                <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">$187:00/Day</h4>
-                            </div>
-                            <div class="row gy-2 gx-0 text-center mb-4">
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4 Seat</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">AT/MT</span>
-                                </div>
-                                <div class="col-4">
-                                    <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">Petrol</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">2015</span>
-                                </div>
-                                <div class="col-4 border-end border-white">
-                                    <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">AUTO</span>
-                                </div>
-                                <div class="col-4">
-                                    <i class="fa fa-road text-dark"></i> <span class="text-body ms-1">27K</span>
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
-                                Now</a>
                         </div>
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/Mahindra-XUV.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Mahindra-XUV</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.8 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/Thar.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Thar</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.8 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/maruti-suzuki-baleno.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Baleno</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.8 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/Land-Cruiser.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>Land Cruiser</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.8 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="categories-item p-4">
+                            <div class="categories-item-inner">
+                                <div class="categories-img rounded-top">
+                                    <img src="img/winger.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                </div>
+                                <div class="categories-content rounded-bottom p-4">
+                                    <h4>winger</h4>
+                                    <div class="categories-review mb-4">
+                                        <div class="me-3">4.8 Rating</div>
+                                        <div class="d-flex justify-content-center text-secondary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4
+                                                Seats</span>
+                                        </div>
+                                        <div class="col-4 border-end border-white">
+                                            <i class="fa fa-car text-dark"></i> <span
+                                                class="text-body ms-1">Automatic</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fa fa-bolt text-dark"></i> <span
+                                                class="text-body ms-1">Electric</span>
+                                        </div>
+                                    </div>
+                                    <a onclick="openModal()"
+                                        class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-    <!-- Car categories End -->
-    <div class="categories-carousel owl-carousel wow fadeInUp" data-wow-delay="0.1s" id="carsContainer">
-        <!-- Cars will be injected here dynamically -->
-    </div>
+
 
 
     <!-- Car Steps Start -->
     <div class="container-fluid steps py-5">
         <div class="container py-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                <h1 class="display-5 text-capitalize text-white mb-3">Cental<span class="text-primary"> Process</span>
+                <h1 class="display-5 text-capitalize text-white mb-3">Rental<span class="text-primary"> Process</span>
                 </h1>
-                <p class="mb-0 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo
-                    expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci
-                    facilis modi quisquam quia distinctio,
-                </p>
+                <p class="mb-0 text-white">Renting a car in Goa with <b>Express Cars</b> is quick, simple, and
+                    stress-free. Just follow three easy steps and get ready to explore the sunshine state at your own
+                    pace!</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="steps-item p-4 mb-4">
-                        <h4>Come In Contact</h4>
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                        <h4>Get In Touch</h4>
+                        <p class="mb-0">Call us, WhatsApp, or book online – our team is always ready to help you find
+                            the perfect ride in Goa.</p>
                         <div class="setps-number">01.</div>
                     </div>
                 </div>
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="steps-item p-4 mb-4">
-                        <h4>Choose A Car</h4>
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                        <h4>Pick Your Car</h4>
+                        <p class="mb-0">Choose from our wide range of hatchbacks, sedans, and SUVs – all well-maintained
+                            and ready for your adventure.</p>
                         <div class="setps-number">02.</div>
                     </div>
                 </div>
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="steps-item p-4 mb-4">
-                        <h4>Enjoy Driving</h4>
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                        <h4>Hit the Road</h4>
+                        <p class="mb-0">We’ll deliver your car to your hotel, airport, or anywhere in Goa – so you can
+                            start your journey right away.</p>
                         <div class="setps-number">03.</div>
                     </div>
                 </div>
