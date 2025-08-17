@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper Car Showcase</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        /* Parent section responsive */
+        #about-us-section {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* allows text and carousel to stack */
+            padding: 20px;
+            background: linear-gradient(to right, #ffffff, #ffffff);
+            font-family: "Poppins", sans-serif;
+            color: #fff;
+            overflow: hidden;
+            gap: 40px;
+            /* space between hero text and carousel */
+        }
+
+        /* Hero text */
+        .hero-text {
+            max-width: 600px;
+            text-align: left;
+            color: #fff;
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(90deg, #ff7eb3, #ff758c, #ffce6d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* Subtle fade-in animation */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+        .swiper {
+            max-width: 720px;
+            height: 420px;
+            /* padding: 50px 0; */
+            border: none;
+            /* removes border */
+            outline: none;
+            /* removes outline */
+            background: none;
+            /* removes background if you don't want */
+            border-radius: 20px;
+            /* removes rounded edges */
+        }
+
+        .swiper-slide {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Car images */
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .swiper-slide:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Overlay for text + button */
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            text-align: center;
+        }
+
+        .slide-content h2 {
+            font-size: 1.4rem;
+            margin: 0 0 12px;
+            background: linear-gradient(90deg, #ff9d6c, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slide-content a {
+            display: inline-block;
+            color: #fff;
+            background: linear-gradient(90deg, #ff6a00, #ee0979);
+            border-radius: 32px;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.35s ease;
+            box-shadow: 0 5px 15px rgba(238, 9, 121, 0.4);
+        }
+
+        .slide-content a:hover {
+            background: linear-gradient(90deg, #ee0979, #ff6a00);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(238, 9, 121, 0.6);
+        }
+
+        /* Pagination */
+        .swiper-pagination-bullet {
+            background: #fff !important;
+            opacity: 0.5;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #ff6a00 !important;
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 992px) {
+            #about-us-section {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-text {
+                margin-right: 0;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .swiper {
+                max-width: 500px;
+                height: 360px;
+            }
+        }
+
+        /* 📱 Mobile */
+        @media (max-width: 600px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 0.95rem;
+            }
+
+            .hero-text .btn-primary {
+                padding: 10px 22px;
+                font-size: 14px;
+            }
+
+            .swiper {
+                max-width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="about-us-section">
+        <div class="hero-text">
+            <h1>Car Showcase</h1>
+            <p>Explore our latest car models with stunning visuals and smooth transitions.</p>
+            <a href="#explore" class="btn-primary">Get Started</a>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/car-rent-website-template/img/hycros.jpg" alt="A Class Car">
+                    <div class="slide-content">
+                        <h2>A Class</h2>
+                        <a href="#">Explore</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/car-rent-website-template/img/Hyundai-Creta.jpg" alt="B Class Car">
+                    <div class="slide-content">
+                        <h2>B Class</h2>
+                        <a href="#">Explore</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/car-rent-website-template/img/Thar.jpg" alt="C Class Car">
+                    <div class="slide-content">
+                        <h2>C Class</h2>
+                        <a href="#">Explore</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/car-rent-website-template/img/Land-Cruiser.jpg" alt="D Class Car">
+                    <div class="slide-content">
+                        <h2>D Class</h2>
+                        <a href="#">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="swiper-pagination"></div> -->
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".swiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            speed: 600,
+            coverflowEffect: {
+                rotate: 20,
+                stretch: 0,
+                depth: 120,
+                modifier: 3,
+                slideShadows: true,
+            },
+            loop: true, // infinite loop
+            autoplay: {
+                delay: 2500,   // time between slides (ms)
+                disableOnInteraction: false, // keeps autoplay even after dragging
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+
+    </script>
+</body>
+
+</html>

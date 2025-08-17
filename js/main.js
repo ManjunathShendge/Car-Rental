@@ -161,3 +161,30 @@ toggleButton.addEventListener("click", () => {
   // Save preference
   localStorage.setItem("theme", isDark ? "dark-mode" : "light-mode");
 });
+
+function openModal() {
+  document.getElementById("rentalModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("rentalModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById("rentalModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+document.getElementById('rentalForm').addEventListener('submit', function(e) {
+  const pickupDate = new Date(document.getElementById('pickupDate').value);
+  const dropoffDate = new Date(document.getElementById('dropoffDate').value);
+  
+  if (dropoffDate < pickupDate) {
+    alert("Drop Off Date cannot be before Pick Up Date");
+    e.preventDefault();
+    return false;
+  }
+});
+
