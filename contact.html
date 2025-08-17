@@ -30,6 +30,27 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+<style>
+    /* Match select box with other form-floating inputs */
+    .form-floating .form-select {
+        padding: 1rem 0.75rem;
+        height: calc(3.5rem + 2px);
+        border-radius: 0.375rem;
+    }
+
+    .form-floating>.form-select~label {
+        padding: 0.5rem 0.75rem;
+        opacity: 0.65;
+        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+        pointer-events: none;
+    }
+
+    .form-floating>.form-select:focus~label,
+    .form-floating>.form-select:not([value=""])~label {
+        opacity: 1;
+        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    }
+</style>
 
 <body>
 
@@ -125,7 +146,7 @@
                     Get in touch with us for bookings, pricing, or any questions about our car rental services in Goa.
                     Our team is available 24/7 to assist you.
                     <br><br>
-                    
+
                 </p>
             </div>
 
@@ -139,7 +160,8 @@
                                 </div>
                                 <div>
                                     <h4>Address</h4>
-                                    <p class="mb-0">Treebo Green park, Calangute - Mapusa Rd, Mapusa, Guirim, Goa 403510</p>
+                                    <p class="mb-0">Treebo Green park, Calangute - Mapusa Rd, Mapusa, Guirim, Goa 403510
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -171,7 +193,7 @@
                                     <i class="fab fa-firefox-browser fa-2x"></i>
                                 </div>
                                 <div>
-                                    <h4>https://expresscars.netlify.app/</h4>
+                                    <a href="https://expresscars.netlify.app" style="color: black;">Visit Site</a>
                                     <p class="mb-0">+91 96654 19042</p>
                                 </div>
                             </div>
@@ -181,7 +203,7 @@
                 <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-secondary p-5 rounded">
                         <h4 class="text-primary mb-4">Send Your Message</h4>
-                        <form>
+                        <form id="contactForm">
                             <div class="row g-4">
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
@@ -203,10 +225,25 @@
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="project" placeholder="Project">
-                                        <label for="project">Your Project</label>
+                                        <select class="form-select" id="car" required>
+                                            <option value="" disabled selected>Select Car</option>
+                                            <option value="ertiga">Ertiga</option>
+                                            <option value="hycros">Hycros</option>
+                                            <option value="kia">Kia</option>
+                                            <option value="kia-seltos">Kia Seltos</option>
+                                            <option value="hyundai-creta">Hyundai Creta</option>
+                                            <option value="mahindra-xuv">Mahindra XUV</option>
+                                            <option value="thar">Thar</option>
+                                            <option value="baleno">Baleno</option>
+                                            <option value="land-cruiser">Land Cruiser</option>
+                                            <option value="winger">Winger</option>
+                                            <option value="swift">Maruti Suzuki Swift</option>
+                                            <option value="i20">Hyundai i20</option>
+                                        </select>
+                                        <label for="car">Select Car</label>
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="subject" placeholder="Subject">
@@ -219,74 +256,50 @@
                                             style="height: 160px"></textarea>
                                         <label for="message">Message</label>
                                     </div>
-
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-light w-100 py-3">Send Message</button>
+                                    <button type="submit" class="btn btn-success w-100 py-3">
+                                        <i class="fab fa-whatsapp"></i> Send on WhatsApp
+                                    </button>
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
                 <div class="col-12 col-xl-1 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="d-flex flex-xl-column align-items-center justify-content-center">
-                        <a class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0" href=""><i
+                        <a class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0"
+                            href="https://www.facebook.com/profile.php?id=61572643984403"><i
                                 class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0" href=""><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0" href=""><i
-                                class="fab fa-instagram"></i></a>
-                        <a class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-0 me-0 me-xl-0" href=""><i
+                        <a class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0"
+                            href="https://www.instagram.com/life_runner_0311_/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-0 me-xl-0"
+                            href="https://www.linkedin.com/in/manjunath-shendge-0a440b250/"><i
                                 class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-0 me-0 me-xl-0"
+                            href="https://wa.me/919665419042?text=Hi%20I%20want%20to%20rent%20a%20car" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-12 col-xl-5 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="p-5 bg-light rounded">
-                        <div class="bg-white rounded p-4 mb-4">
-                            <h4 class="mb-3">Our Branch 01</h4>
-                            <div class="d-flex align-items-center flex-shrink-0 mb-3">
-                                <p class="mb-0 text-dark me-2">Address:</p><i
-                                    class="fas fa-map-marker-alt text-primary me-2"></i>
-                                <p class="mb-0">123 Street New York.USA</p>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <p class="mb-0 text-dark me-2">Telephone:</p><i
-                                    class="fa fa-phone-alt text-primary me-2"></i>
-                                <p class="mb-0">(+012) 3456 7890</p>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded p-4 mb-4">
-                            <h4 class="mb-3">Our Branch 02</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <p class="mb-0 text-dark me-2">Address:</p><i
-                                    class="fas fa-map-marker-alt text-primary me-2"></i>
-                                <p class="mb-0">123 Street New York.USA</p>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <p class="mb-0 text-dark me-2">Telephone:</p><i
-                                    class="fa fa-phone-alt text-primary me-2"></i>
-                                <p class="mb-0">(+012) 3456 7890</p>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded p-4 mb-0">
-                            <h4 class="mb-3">Our Branch 03</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <p class="mb-0 text-dark me-2">Address:</p><i
-                                    class="fas fa-map-marker-alt text-primary me-2"></i>
-                                <p class="mb-0">123 Street New York.USA</p>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <p class="mb-0 text-dark me-2">Telephone:</p><i
-                                    class="fa fa-phone-alt text-primary me-2"></i>
-                                <p class="mb-0">(+012) 3456 7890</p>
-                            </div>
-                        </div>
+                <div class="col-12 col-xl-5 wow fadeInUp position-relative" data-wow-delay="0.1s">
+                    <img src="./img/goa-img4.jpg" alt="Car Rental in Goa" class="img-fluid rounded"
+                        style="height: 100%; width: 900px; object-fit: cover;">
+
+                    <!-- Overlay Text -->
+                    <div class="overlay-text d-flex flex-column justify-content-center align-items-center">
+                        <h2 class="text-white fw-bold">Reliable Car Rentals in Goa</h2>
+                        <p class="text-light">Affordable, hassle-free rides for your perfect trip.</p>
+                        <a href="#contact" class="btn btn-primary rounded-pill mt-2">Book Now</a>
                     </div>
                 </div>
+
                 <div class="col-12">
                     <div class="rounded">
-                        <iframe class="rounded w-100" style="height: 400px;"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3477.94489252413!2d73.8087688!3d15.578060899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfeb7918844d3b%3A0x49621addb0d6d0d2!2sFernandes%20Car%20%26%20bike%20rental!5e1!3m2!1sen!2sin!4v1755456972712!5m2!1sen!2sin"
+                            width="100%" height="500px" style="border:0; border-radius: 20px;" allowfullscreen=""
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
@@ -345,12 +358,13 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-3">
-                     <div class="footer-item d-flex flex-column">
+                    <div class="footer-item d-flex flex-column">
                         <h4 class="text-white mb-4">Contact Info</h4>
-                        <a href="#"><i class="fa fa-map-marker-alt me-2"></i>Treebo Green park, Calangute - Mapusa Rd, Mapusa, Guirim, Goa 403510</a>
+                        <a href="#"><i class="fa fa-map-marker-alt me-2"></i>Treebo Green park, Calangute - Mapusa Rd,
+                            Mapusa, Guirim, Goa 403510</a>
                         <a href="mailto:info@example.com"><i class="fas fa-envelope me-2"></i> info@expresscars.com</a>
                         <a href="tel:+012 345 67890"><i class="fas fa-phone me-2"></i> +91 96654 19042</a>
-                        <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"></i>  +91 96654 19042</a>
+                        <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"> +91 96654 19042</i> </a>
                         <div class="d-flex">
                             <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i
                                     class="fab fa-facebook-f text-white"></i></a>
@@ -374,22 +388,35 @@
             <div class="row g-4 align-items-center">
                 <div class="col-md-6 text-center text-md-start mb-md-0">
                     <span class="text-body"><a href="#" class="border-bottom text-white"><i
-                                class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right
+                                class="fas fa-copyright text-light me-2"></i>expresscars.netlify.app</a>, All right
                         reserved.</span>
                 </div>
                 <div class="col-md-6 text-center text-md-end text-body">
                     <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
                     <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
                     <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                    Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a>
+                    Designed By <a class="border-bottom text-white" href="#">SYNVIA</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- Copyright End -->
 
+    <!-- Floating Button Stack -->
+    <div class="floating-button-stack">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/9665419042" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+        </a>
 
-    <!-- Back to Top -->
+        <!-- Contact/Call Button -->
+        <a href="tel:+919876543210" class="contact-btn" title="Call Us">
+            <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Call" />
+        </a>
+
+
+    </div>
+
     <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
@@ -405,6 +432,35 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // stop page reload
+
+            // Collect form data
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let project = document.getElementById("project").value;
+            let subject = document.getElementById("subject").value;
+            let message = document.getElementById("message").value;
+
+            // WhatsApp number (without + or leading 0)
+            let whatsappNumber = "919665419042";
+
+            // Encode message for URL
+            let whatsappMessage = `Hello, my name is ${name}.%0A
+Email: ${email}%0A
+Phone: ${phone}%0A
+Project: ${project}%0A
+Subject: ${subject}%0A
+Message: ${message}`;
+
+            // Open WhatsApp
+            let whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            window.open(whatsappURL, "_blank");
+        });
+    </script>
+
 </body>
 
 </html>
